@@ -15,7 +15,7 @@ done
 echo "Started.."
 
 echo setup.sh time now: `date +"%T" `
-mongo --host ${mongodb1}:${port} <<EOF
+mongo --host ${mongodb1}:${port} -u ${MONGO_INITDB_ROOT_USERNAME} -p ${MONGO_INITDB_ROOT_PASSWORD} --authenticationDatabase ${MONGO_INITDB} <<EOF
    var cfg = {
         "_id": "${RS}",
         "protocolVersion": 1,
